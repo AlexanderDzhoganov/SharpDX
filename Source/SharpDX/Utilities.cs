@@ -164,7 +164,7 @@ namespace SharpDX
         /// <returns>Size of this struct.</returns>
         public static int SizeOf<T>() where T : struct
         {
-            return Interop.SizeOf<T>();            
+            return Marshal.SizeOf(typeof(T));     
         }
 
         /// <summary>
@@ -175,7 +175,7 @@ namespace SharpDX
         /// <returns>Size in bytes of this array of struct.</returns>
         public static int SizeOf<T>(T[] array) where T : struct
         {
-            return array == null ? 0 : array.Length * Interop.SizeOf<T>();
+            return array == null ? 0 : array.Length * Marshal.SizeOf(typeof(T));
         }
 
         /// <summary>
